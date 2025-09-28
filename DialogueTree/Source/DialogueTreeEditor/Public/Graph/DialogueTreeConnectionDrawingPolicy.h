@@ -21,14 +21,14 @@ public:
 public:
 	/** FConnectionDrawingPolicy Implementation */
 	virtual void DrawPreviewConnector(const FGeometry& PinGeometry, 
-		const FVector2D& StartPoint, const FVector2D& EndPoint, 
+		const FVector2f& StartPoint, const FVector2f& EndPoint, 
 		UEdGraphPin* Pin) override;
-	virtual void DrawSplineWithArrow(const FVector2D& StartPoint, 
-		const FVector2D& EndPoint, const FConnectionParams& Params) override;
+	virtual void DrawSplineWithArrow(const FVector2f& StartPoint, 
+		const FVector2f& EndPoint, const FConnectionParams& Params) override;
 	virtual void DrawSplineWithArrow(const FGeometry& StartGeom, 
 		const FGeometry& EndGeom, const FConnectionParams& Params) override;
-	virtual FVector2D ComputeSplineTangent(const FVector2D& Start, 
-		const FVector2D& End) const override;
+	virtual FVector2f ComputeSplineTangent(const FVector2f& Start, 
+		const FVector2f& End) const override;
 	/** End FConnectionDrawingPolicy */
 
 private: 
@@ -49,7 +49,7 @@ private:
 	* input or output pin.
 	* @return FVector2D - Location of the connection point. 
 	*/
-	FVector2D GetPinConnectionPoint(const FGeometry& InPinGeom, 
+	FVector2f GetPinConnectionPoint(const FGeometry& InPinGeom, 
 		const EEdGraphPinDirection InDirection) const;
 
 	/**
@@ -59,7 +59,7 @@ private:
 	* be connected. 
 	* @return FSplineShape - the shape struct for the spline. 
 	*/
-	FSplineShape GetSplineShape(FVector2D DeltaPos) const;
+	FSplineShape GetSplineShape(FVector2f DeltaPos) const;
 
 private:
 	/** Radius of a standard pin */
